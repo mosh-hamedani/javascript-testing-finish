@@ -57,7 +57,7 @@ export function isOnline() {
   const [open, close] = availableHours;
   const currentHour = new Date().getHours();
 
-  return currentHour >= open && currentHour <= close;
+  return currentHour >= open && currentHour < close;
 }
 
 // Exercise
