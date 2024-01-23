@@ -3,5 +3,5 @@ export function generateCode() {
 }
 
 export default {
-  generateCode,
+  generateCode
 };

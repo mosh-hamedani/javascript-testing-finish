@@ -7,7 +7,7 @@ import {
   getCoupons,
   isPriceInRange,
   isValidUsername,
-  validateUserInput,
+  validateUserInput
 } from '../src/core';
 
 describe('getCoupons', () => {
@@ -102,10 +102,10 @@ describe('isPriceInRange', () => {
     {
       scenario: 'price between min and max',
       price: 50,
-      result: true,
+      result: true
     },
     { scenario: 'price = max', price: 100, result: true },
-    { scenario: 'price > max', price: 200, result: false },
+    { scenario: 'price > max', price: 200, result: false }
   ])('should return $result when $scenario', ({ price, result }) => {
     expect(isPriceInRange(price, 0, 100)).toBe(result);
   });
@@ -151,7 +151,7 @@ describe('canDrive', () => {
     { age: 17, country: 'US', result: true },
     { age: 16, country: 'UK', result: false },
     { age: 17, country: 'UK', result: true },
-    { age: 18, country: 'UK', result: true },
+    { age: 18, country: 'UK', result: true }
   ])('should return $result for $age, $country', ({ age, country, result }) => {
     expect(canDrive(age, country)).toBe(result);
   });
@@ -160,7 +160,7 @@ describe('canDrive', () => {
 describe('fetchData', () => {
   it('should return a promise that will resolve to an array of numbers', async () => {
     try {
-      const result = await fetchData();
+      await fetchData();
     } catch (error) {
       expect(error).toHaveProperty('reason');
       expect(error.reason).toMatch(/fail/i);
