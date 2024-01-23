@@ -44,9 +44,7 @@ describe('calculateDiscount', () => {
   });
 
   it('should handle non-numeric price', () => {
-    expect(calculateDiscount('10', 'SAVE10')).toMatch(
-      /invalid/i
-    );
+    expect(calculateDiscount('10', 'SAVE10')).toMatch(/invalid/i);
   });
 
   it('should handle negative price', () => {
@@ -76,9 +74,7 @@ describe('validateUserInput', () => {
   });
 
   it('should return an error if username is longer than 255 characters', () => {
-    expect(validateUserInput('A'.repeat(256), 42)).toMatch(
-      /invalid/i
-    );
+    expect(validateUserInput('A'.repeat(256), 42)).toMatch(/invalid/i);
   });
 
   it('should return an error if age is not a number', () => {
@@ -94,9 +90,7 @@ describe('validateUserInput', () => {
   });
 
   it('should return an error if both username and age are invalid', () => {
-    expect(validateUserInput('', 0)).toMatch(
-      /invalid username/i
-    );
+    expect(validateUserInput('', 0)).toMatch(/invalid username/i);
     expect(validateUserInput('', 0)).toMatch(/invalid age/i);
   });
 });
@@ -112,12 +106,9 @@ describe('isPriceInRange', () => {
     },
     { scenario: 'price = max', price: 100, result: true },
     { scenario: 'price > max', price: 200, result: false },
-  ])(
-    'should return $result when $scenario',
-    ({ price, result }) => {
-      expect(isPriceInRange(price, 0, 100)).toBe(result);
-    }
-  );
+  ])('should return $result when $scenario', ({ price, result }) => {
+    expect(isPriceInRange(price, 0, 100)).toBe(result);
+  });
 });
 
 describe('isValidUsername', () => {
@@ -125,15 +116,11 @@ describe('isValidUsername', () => {
   const maxLength = 15;
 
   it('should return false if username is too short', () => {
-    expect(isValidUsername('a'.repeat(minLength - 1))).toBe(
-      false
-    );
+    expect(isValidUsername('a'.repeat(minLength - 1))).toBe(false);
   });
 
   it('should return false if username is too long', () => {
-    expect(isValidUsername('a'.repeat(maxLength + 1))).toBe(
-      false
-    );
+    expect(isValidUsername('a'.repeat(maxLength + 1))).toBe(false);
   });
 
   it('should return true if username is at the min or max length', () => {
@@ -142,12 +129,8 @@ describe('isValidUsername', () => {
   });
 
   it('should return true if username is within the length constraint', () => {
-    expect(isValidUsername('a'.repeat(minLength + 1))).toBe(
-      true
-    );
-    expect(isValidUsername('a'.repeat(maxLength - 1))).toBe(
-      true
-    );
+    expect(isValidUsername('a'.repeat(minLength + 1))).toBe(true);
+    expect(isValidUsername('a'.repeat(maxLength - 1))).toBe(true);
   });
 
   it('should return false for invalid input types', () => {
@@ -169,12 +152,9 @@ describe('canDrive', () => {
     { age: 16, country: 'UK', result: false },
     { age: 17, country: 'UK', result: true },
     { age: 18, country: 'UK', result: true },
-  ])(
-    'should return $result for $age, $country',
-    ({ age, country, result }) => {
-      expect(canDrive(age, country)).toBe(result);
-    }
-  );
+  ])('should return $result for $age, $country', ({ age, country, result }) => {
+    expect(canDrive(age, country)).toBe(result);
+  });
 });
 
 describe('fetchData', () => {
