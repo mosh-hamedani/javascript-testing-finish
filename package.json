@@ -11,7 +11,8 @@
     "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
     "format": "prettier . --write",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "check-types": "tsc"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
@@ -20,6 +21,7 @@
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1",
     "prettier": "^3.2.4",
+    "typescript": "^5.3.3",
     "vite": "^5.0.0",
     "vitest": "^1.1.3"
   },
