@@ -1,4 +1,4 @@
-import { it, expect, describe } from 'vitest'
+import { it, expect, describe } from 'vitest';
 import { calculateDiscount } from '../src/main';
 
 describe('calculateDiscount', () => {
@@ -14,4 +14,4 @@ describe('calculateDiscount', () => {
   it('should handle invalid discount code', () => {
     expect(calculateDiscount(10, 'INVALID')).toBe(10);
   });
-})
+});
